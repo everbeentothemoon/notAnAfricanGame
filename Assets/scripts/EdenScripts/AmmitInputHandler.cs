@@ -23,14 +23,4 @@ public class AmmitInputHandler : MonoBehaviour
             resultTxt.color = Color.red;
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
