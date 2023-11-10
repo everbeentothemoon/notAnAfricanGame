@@ -7,7 +7,7 @@ public class PinMM : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("2D_Mokele Mbembe");
+        SceneManager.LoadScene("2D_MokeleMbembe");
     }
 
     // Start is called before the first frame update

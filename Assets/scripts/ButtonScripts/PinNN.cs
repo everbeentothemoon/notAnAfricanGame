@@ -7,7 +7,7 @@ public class PinNN : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("2D_Ninki Nanka");
+        SceneManager.LoadScene("2D_NinkiNanka");
     }
 
     // Start is called before the first frame update
