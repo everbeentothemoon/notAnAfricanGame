@@ -8,7 +8,6 @@ public class swimBitch : MonoBehaviour
     public float sensitivity = 2.0f;
     private float maxYRotation = 20.0f;
 
-    private float rotationX = 0;
     private Rigidbody playerRigidbody;
     private float originalGravity;
 
@@ -43,15 +42,31 @@ public class swimBitch : MonoBehaviour
     {
         if (playerRigidbody != null)
         {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
-
-            playerRigidbody.transform.localRotation *= Quaternion.Euler(0, mouseX * sensitivity, 0);
-
-            rotationX -= mouseY * sensitivity;
-            rotationX = Mathf.Clamp(rotationX, -20, maxYRotation);
-
-            Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            MovePlayer();
+            RotateCamera();
         }
+    }
+
+    private void MovePlayer()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 moveDirection = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 movement = playerRigidbody.transform.TransformDirection(moveDirection);
+        playerRigidbody.velocity = new Vector3(movement.x, playerRigidbody.velocity.y, movement.z);
+    }
+
+    private void RotateCamera()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        playerRigidbody.transform.localRotation *= Quaternion.Euler(0, mouseX * sensitivity, 0);
+
+        float rotationX = -mouseY * sensitivity;
+        rotationX = Mathf.Clamp(rotationX, -maxYRotation, maxYRotation);
+
+        Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
     }
 }

@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: b10b7316275704442a5f2ddb4623ca80
+  - enabled: 1
+    path: Assets/Scenes/2D_Ammit.unity
+    guid: af106d3bd5fceba458667caf536afc76
+  - enabled: 1
+    path: Assets/Scenes/2D_Jengu.unity
+    guid: 63d1cbceae6c82046b92183ec795695d
+  - enabled: 1
+    path: Assets/Scenes/2D_MokeleMbembe.unity
+    guid: 1e1f2754f4d06874fb2da4ccdbe18f7b
+  - enabled: 1
+    path: Assets/Scenes/2D_Tokoloshe.unity
+    guid: 6ba3271c1b05cba42bae8d7c870e683f
+  - enabled: 1
+    path: Assets/Scenes/2D_NinkiNanka.unity
+    guid: 7c1fc621711556d40ac4593a37b2857e
   m_configObjects: {}
