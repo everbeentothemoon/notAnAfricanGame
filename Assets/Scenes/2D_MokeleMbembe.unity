@@ -529,7 +529,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 534bc3bfb59e68e4ea06f166141df32a, type: 3}
   - {fileID: 21300000, guid: bc85ab409280e904594fcd272e27364b, type: 3}
   gamePuzzles: []
-  outputText: {fileID: 0}
+  outputText: {fileID: 465537088}
 --- !u!4 &358545309
 Transform:
   m_ObjectHideFlags: 0
