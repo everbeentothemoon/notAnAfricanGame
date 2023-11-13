@@ -9,6 +9,8 @@ public class AmmitInputHandler : MonoBehaviour
     [SerializeField] InputField inputField;
     [SerializeField] Text resultTxt;
 
+
+
     public void ValidateFunction()
     {
         string input = inputField.text;
@@ -19,9 +21,13 @@ public class AmmitInputHandler : MonoBehaviour
             resultTxt.color = Color.green;
             inputField.gameObject.SetActive(false);
 
+            //flagHandler.SetLevelCompletion(levelIndex, true);
+
+
             // Call the GameManager to mark the level as completed
-            string currentLevelName = SceneManager.GetActiveScene().name;
-            MainGameManager.instance.MarkLevelAsCompleted(currentLevelName);
+            //string currentLevelName = SceneManager.GetActiveScene().name;
+
+            // MainGameManager.instance.MarkLevelAsCompleted(currentLevelName);
         }
         else
         {

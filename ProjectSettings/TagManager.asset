@@ -10,6 +10,7 @@ TagManager:
   - JenguComplete
   - TokolosheComplete
   - MokeleMbembeComplete
+  - FlagHandler
   layers:
   - Default
   - TransparentFX
