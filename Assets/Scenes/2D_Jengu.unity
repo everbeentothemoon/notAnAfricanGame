@@ -780,6 +780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1622722889}
     m_Modifications:
+    - target: {fileID: -8326161703279246043, guid: 6a03fa5c947c3174f90fb043d3c42e16, type: 3}
+      propertyPath: buttonIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1219839573379349100, guid: 6a03fa5c947c3174f90fb043d3c42e16, type: 3}
       propertyPath: m_Name
       value: Button
