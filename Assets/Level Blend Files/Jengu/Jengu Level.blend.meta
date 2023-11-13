@@ -5,6 +5,11 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: 
+      assembly: 
+      name: 
+    second: {instanceID: 0}
+  - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Boat
