@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NinkiManager : MonoBehaviour
 {
@@ -13,13 +14,16 @@ public class NinkiManager : MonoBehaviour
     [SerializeField]
     int correctPipes = 0;
 
+    [SerializeField]
+    private TextMeshProUGUI outputText;
+
     void Start()
     {
         totalPipes = pipesHolder.transform.childCount;
 
         pipes = new GameObject[totalPipes];
 
-        for(int i = 0; i < pipes.Length; i++)
+        for (int i = 0; i < pipes.Length; i++)
         {
             pipes[i] = pipesHolder.transform.GetChild(i).gameObject;
         }
@@ -31,9 +35,11 @@ public class NinkiManager : MonoBehaviour
 
         Debug.Log("correct move");
 
-
+        Debug.Log("pipes correct" + correctPipes + "totalpipes" + totalPipes);
         if (correctPipes == totalPipes)
         {
+            outputText.text = "Correct";
+            outputText.color = Color.green;
             Debug.Log("win");
         }
     }

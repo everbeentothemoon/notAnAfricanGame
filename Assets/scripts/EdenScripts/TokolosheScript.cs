@@ -39,6 +39,10 @@ public class TokolosheScript : MonoBehaviour
         {
             resultTxt.text = "Correct";
             resultTxt.color = Color.green;
+            foreach (InputField inputField in inputFields)
+            {
+                inputField.gameObject.SetActive(false);
+            }
         }
         else
         {

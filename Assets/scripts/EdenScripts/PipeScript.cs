@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeScript : MonoBehaviour
 {
-    float[] rotations = {0,90,180,270};
+    float[] rotations = { 0, 90, 180, 270 };
     public float[] correctRotation;
 
     [SerializeField]
@@ -13,6 +11,7 @@ public class PipeScript : MonoBehaviour
     int possibleRots = 1;
 
     NinkiManager manager;
+
 
     private void Awake()
     {
@@ -23,60 +22,54 @@ public class PipeScript : MonoBehaviour
     {
         possibleRots = correctRotation.Length;
 
-        int rand = Random.Range(0, rotations.Length);
-        transform.eulerAngles = new Vector3(0, 0, rotations[rand]);
+        // Randomize the starting rotation differently
+        transform.eulerAngles = new Vector3(0, 0, rotations[Random.Range(0, rotations.Length)]);
 
-        if(possibleRots == 1)
-        {
-            if (transform.eulerAngles.z == correctRotation[0])
-            {
-                //Debug.Log("placed error" + gameObject.name);
-                isPlaced = true;
-                manager.correctMove();
-            }
-        }
-        else if(possibleRots == 2)
-        {
-            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1])
-            {
-                isPlaced = true;
-                manager.correctMove();
-                //Debug.Log("placed" + gameObject.name);
-            }
-        }
-
-
+        CheckPlacement();
     }
+
     private void OnMouseDown()
     {
+        // Rotate by 90 degrees on each click
         transform.Rotate(new Vector3(0, 0, 90));
-        //Debug.Log("clicked");
+        CheckPlacement();
+    }
 
-        if (possibleRots > 1)
+    private void CheckPlacement()
+    {
+        if (IsCorrectRotation() && !isPlaced)
         {
-            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1] && isPlaced == false)
+            isPlaced = true;
+            manager.correctMove();
+        }
+        else if (isPlaced)
+        {
+            isPlaced = false;
+            manager.wrongMove();
+        }
+    }
+
+    private bool IsCorrectRotation()
+    {
+        // Check if the current rotation is approximately equal to any correct rotation
+        foreach (float rotation in correctRotation)
+        {
+            if (Mathf.Approximately(NormalizeAngle(transform.eulerAngles.z), NormalizeAngle(rotation)))
             {
-                isPlaced = true;
-                manager.correctMove();
-            }
-            else if (isPlaced == true)
-            {
-                isPlaced = false;
-                manager.wrongMove();
+                return true;
             }
         }
-        else
+        return false;
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        // Normalize angle to be in the range [0, 360)
+        angle %= 360f;
+        if (angle < 0)
         {
-            if (transform.eulerAngles.z == correctRotation[0] && isPlaced == false)
-            {
-                isPlaced = true;
-                manager.correctMove();
-            }
-            else if (isPlaced == true)
-            {
-                isPlaced = false;
-                manager.wrongMove();
-            }
+            angle += 360f;
         }
+        return angle;
     }
 }

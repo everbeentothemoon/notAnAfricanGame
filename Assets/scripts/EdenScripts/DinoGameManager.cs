@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class DinoGameManager : MonoBehaviour
@@ -21,6 +22,10 @@ public class DinoGameManager : MonoBehaviour
 
     private string firstGuessPuzzle, secondGuessPuzzle;
     private int firstGuessIndex, secondGuessIndex;
+
+    [SerializeField]
+    private TextMeshProUGUI outputText;
+
 
     // Update is called once per frame
     void Start()
@@ -66,21 +71,30 @@ public class DinoGameManager : MonoBehaviour
             button.onClick.AddListener(() => PickAPuzzle());
         }
     }
+
     public void PickAPuzzle()
     {
         string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
-        
-        if(!firstGuess)
+
+        // Check if the selected button is not already guessed
+        int buttonIndex = int.Parse(name);
+        if (buttons[buttonIndex].interactable == false)
+        {
+            // The button has already been guessed, do nothing
+            return;
+        }
+
+        if (!firstGuess)
         {
             firstGuess = true;
-            firstGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+            firstGuessIndex = buttonIndex;
             firstGuessPuzzle = gamePuzzles[firstGuessIndex].name;
             buttons[firstGuessIndex].image.sprite = gamePuzzles[firstGuessIndex];
         }
-        else if(!secondGuess)
+        else if (!secondGuess && firstGuessIndex != buttonIndex)
         {
             secondGuess = true;
-            secondGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+            secondGuessIndex = buttonIndex;
             secondGuessPuzzle = gamePuzzles[secondGuessIndex].name;
             buttons[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
             countGuesses++;
@@ -91,7 +105,7 @@ public class DinoGameManager : MonoBehaviour
 
     IEnumerator CheckIfMatch()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         if(firstGuessPuzzle == secondGuessPuzzle)
         {
@@ -121,6 +135,8 @@ public class DinoGameManager : MonoBehaviour
 
         if(countCorrectGuesses == gameGuesses)
         {
+            outputText.text = "Correct";
+            outputText.color = Color.green;
             //Debug.Log("Game Finished");
         }
     }
