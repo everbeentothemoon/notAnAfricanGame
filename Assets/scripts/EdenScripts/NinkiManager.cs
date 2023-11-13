@@ -17,6 +17,10 @@ public class NinkiManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI outputText;
 
+
+    [SerializeField]
+    private GameObject tiles;
+
     void Start()
     {
         totalPipes = pipesHolder.transform.childCount;
@@ -41,6 +45,7 @@ public class NinkiManager : MonoBehaviour
             outputText.text = "Correct";
             outputText.color = Color.green;
             Debug.Log("win");
+            tiles.gameObject.SetActive(false);
         }
     }
 

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Button
+  - AmmitComplete
+  - NinkiNankaComplete
+  - JenguComplete
+  - TokolosheComplete
+  - MokeleMbembeComplete
   layers:
   - Default
   - TransparentFX

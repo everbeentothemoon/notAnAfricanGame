@@ -2006,6 +2006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 3288315468976039563, guid: 244c99782407fee4a8d3990c695e40ae, type: 3}
+      propertyPath: m_TagString
+      value: AmmitComplete
+      objectReference: {fileID: 0}
     - target: {fileID: 3288315468976039567, guid: 244c99782407fee4a8d3990c695e40ae, type: 3}
       propertyPath: m_RootOrder
       value: 1

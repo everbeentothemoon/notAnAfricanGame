@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AmmitInputHandler : MonoBehaviour
@@ -17,6 +18,10 @@ public class AmmitInputHandler : MonoBehaviour
             resultTxt.text = "Correct";
             resultTxt.color = Color.green;
             inputField.gameObject.SetActive(false);
+
+            // Call the GameManager to mark the level as completed
+            string currentLevelName = SceneManager.GetActiveScene().name;
+            MainGameManager.instance.MarkLevelAsCompleted(currentLevelName);
         }
         else
         {
@@ -25,3 +30,4 @@ public class AmmitInputHandler : MonoBehaviour
         }
     }
 }
+

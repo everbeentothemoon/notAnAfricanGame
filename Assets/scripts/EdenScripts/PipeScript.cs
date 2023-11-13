@@ -23,7 +23,7 @@ public class PipeScript : MonoBehaviour
         possibleRots = correctRotation.Length;
 
         // Randomize the starting rotation differently
-        transform.eulerAngles = new Vector3(0, 0, rotations[Random.Range(0, rotations.Length)]);
+        //transform.eulerAngles = new Vector3(0, 0, rotations[Random.Range(0, rotations.Length)]);
 
         CheckPlacement();
     }

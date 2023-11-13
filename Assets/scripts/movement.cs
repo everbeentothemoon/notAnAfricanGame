@@ -14,22 +14,22 @@ public class movement : MonoBehaviour
     private bool canJump = true;
 
     public int health;
-    public BarData healthBar;
+    //public BarData healthBar;
     private int healthValue = 100;
-    public int gems;
+    //public int gems;
 
 
-    [SerializeField] TextMeshProUGUI healthText;
-    [SerializeField] private GameObject gem1;
-    [SerializeField] private GameObject gem2;
-    [SerializeField] private GameObject gem3;
-    [SerializeField] private GameObject gem4;
-    [SerializeField] private GameObject gem5;
+   // [SerializeField] TextMeshProUGUI healthText;
+    //[SerializeField] private GameObject gem1;
+    //[SerializeField] private GameObject gem2;
+    //[SerializeField] private GameObject gem3;
+    //[SerializeField] private GameObject gem4;
+    //[SerializeField] private GameObject gem5;
 
 
     private void DecreaseStats()
     {
-        healthBar.SetHealth(health);
+        //healthBar.SetHealth(health);
 
         //hygieneValue -= decrHygieneRate;
     }
