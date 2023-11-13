@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class swimBitch : MonoBehaviour
@@ -8,13 +7,21 @@ public class swimBitch : MonoBehaviour
     public float sensitivity = 2.0f;
     private float maxYRotation = 20.0f;
 
+    public float drowningTime = 15.0f;
+    private float currentDrowningTime;
+
     private Rigidbody playerRigidbody;
     private float originalGravity;
+    private bool isDrowning;
+
+    public Transform respawnPoint;
 
     private void Start()
     {
         playerRigidbody = null;
         originalGravity = Physics.gravity.y;
+        currentDrowningTime = drowningTime;
+        isDrowning = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,16 +32,19 @@ public class swimBitch : MonoBehaviour
             if (playerRigidbody != null)
             {
                 Physics.gravity = new Vector3(0, -floatingGravity, 0);
+                StartDrowningTimer();
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("Outta the water");
         if (other.CompareTag("Player") && playerRigidbody != null)
         {
             Physics.gravity = new Vector3(0, originalGravity, 0);
             playerRigidbody = null;
+            StopDrowningTimer();
         }
     }
 
@@ -44,6 +54,11 @@ public class swimBitch : MonoBehaviour
         {
             MovePlayer();
             RotateCamera();
+        }
+
+        if (isDrowning)
+        {
+            UpdateDrowningTimer();
         }
     }
 
@@ -68,5 +83,46 @@ public class swimBitch : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -maxYRotation, maxYRotation);
 
         Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+    }
+
+    private void StartDrowningTimer()
+    {
+        isDrowning = true;
+        currentDrowningTime = drowningTime;
+        StartCoroutine(DrowningTimer());
+    }
+
+    private void StopDrowningTimer()
+    {
+        isDrowning = false;
+        StopAllCoroutines();
+    }
+
+    private void UpdateDrowningTimer()
+    {
+        currentDrowningTime -= Time.deltaTime;
+
+        if (currentDrowningTime <= 0)
+        {
+            TeleportToRespawn();
+        }
+    }
+
+    private void TeleportToRespawn()
+    {
+        if (respawnPoint != null)
+        {
+            playerRigidbody.transform.position = respawnPoint.position;
+            playerRigidbody.velocity = Vector3.zero;
+            currentDrowningTime = drowningTime;
+        }
+    }
+
+    IEnumerator DrowningTimer()
+    {
+        while (isDrowning)
+        {
+            yield return null;
+        }
     }
 }
