@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768830296c04c834e9ac4ecd8a3d81cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 7
   rotationSpeed: 100
   jumpForce: 1
   jumpReloadTime: 3
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c3a5e65b2d54141bb7f26b39664f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyForce: 7
+  flyForce: 6
   flyReloadTime: 1
   rb: {fileID: 1764659893350097228}
 --- !u!1 &1764659893416572651
