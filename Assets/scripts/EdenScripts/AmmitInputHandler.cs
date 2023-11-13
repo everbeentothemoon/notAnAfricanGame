@@ -16,6 +16,7 @@ public class AmmitInputHandler : MonoBehaviour
         {
             resultTxt.text = "Correct";
             resultTxt.color = Color.green;
+            inputField.gameObject.SetActive(false);
         }
         else
         {
