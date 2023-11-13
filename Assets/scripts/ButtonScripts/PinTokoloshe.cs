@@ -8,7 +8,7 @@ public class PinTokoloshe : MonoBehaviour
     // Start is called before the first frame update
     public void LoadScene()
     {
-        SceneManager.LoadScene("2D_Tokoloshe");
+        SceneManager.LoadScene("3D_Tokoloshe");
     }
 
     // Update is called once per frame

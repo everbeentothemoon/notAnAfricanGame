@@ -7,7 +7,7 @@ public class PinAmmit : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("2D_Ammit");
+        SceneManager.LoadScene("3D_Ammit");
     }
 
     // Start is called before the first frame update

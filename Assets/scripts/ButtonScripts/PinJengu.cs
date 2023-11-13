@@ -7,7 +7,7 @@ public class PinJengu : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("2D_Jengu");
+        SceneManager.LoadScene("3D_Jengu");
     }
 
     // Start is called before the first frame update
