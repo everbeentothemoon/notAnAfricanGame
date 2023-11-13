@@ -7,36 +7,36 @@ public class movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
-    public float jumpForce = 1f;
-    public float jumpReloadTime = 3f; 
+    public float jumpForce = 6f;
+    public float jumpReloadTime = 3f;
 
     private Rigidbody rb;
     private bool canJump = true;
 
-    public int health;
-    //public BarData healthBar;
+    /*public int health;
+    public BarData healthBar;
     private int healthValue = 100;
-    //public int gems;
+    public int gems;
 
 
-   // [SerializeField] TextMeshProUGUI healthText;
-    //[SerializeField] private GameObject gem1;
-    //[SerializeField] private GameObject gem2;
-    //[SerializeField] private GameObject gem3;
-    //[SerializeField] private GameObject gem4;
-    //[SerializeField] private GameObject gem5;
+   [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] private GameObject gem1;
+    [SerializeField] private GameObject gem2;
+    [SerializeField] private GameObject gem3;
+    [SerializeField] private GameObject gem4;
+    [SerializeField] private GameObject gem5;*/
 
 
     private void DecreaseStats()
     {
-        //healthBar.SetHealth(health);
+        // healthBar.SetHealth(health);
 
         //hygieneValue -= decrHygieneRate;
     }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        healthBar.SetMaxHealth(healthValue);
+        // healthBar.SetMaxHealth(healthValue);
 
     }
 
@@ -50,12 +50,12 @@ public class movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             Jump();
-            canJump = false; 
+            canJump = false;
             StartCoroutine(ReloadJump());
         }
 
         DecreaseStats();
-        healthText.text = health.ToString("");
+        /*healthText.text = health.ToString("");
 
         if (gems > 0)
         {
@@ -78,12 +78,12 @@ public class movement : MonoBehaviour
             if (gems == 5)
             {
                 gem5.gameObject.SetActive(true);
-            }
+            }*/
 
-
-        }
 
     }
+
+    
 
 
     private void FixedUpdate()
@@ -104,7 +104,7 @@ public class movement : MonoBehaviour
         canJump = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         // Debug.Log("Player collided with: " + collision.gameObject.name);
 
@@ -129,13 +129,47 @@ public class movement : MonoBehaviour
         else if (collision.gameObject.CompareTag("Gem"))
         {
             Destroy(collision.gameObject);
-            gems++;
+          //  gems++;
+        }
+    }*/
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Debug.Log("Player collided with: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("AmmitComplete"))
+        {
+            SceneManager.LoadScene("2D_Ammit");
+            //TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
+
+            //Debug.Log("Player Health: " + health);
+        }
+        else if (collision.gameObject.CompareTag("NinkiNankaComplete"))
+        {
+            SceneManager.LoadScene("2D_NinkiNanka");
+            //TakeDamage(2);
+        }
+        else if (collision.gameObject.CompareTag("TokolosheComplete"))
+        {
+            SceneManager.LoadScene("2D_Tokoloshe");
+            // TakeDamage(10);
+        }
+        else if (collision.gameObject.CompareTag("MokeleMbembeComplete"))
+        {
+            SceneManager.LoadScene("2D_MokeleMbembe");
+            // TakeDamage(6);
+        }
+        else if (collision.gameObject.CompareTag("JenguComplete"))
+        {
+            SceneManager.LoadScene("2D_Jengu");
+            //Destroy(collision.gameObject);
+            // keys++;
         }
     }
     void TakeDamage(int damageValue)
     {
-        health -= damageValue;
-        if (health <= 0)
+       // health -= damageValue;
+        //if (health <= 0)
         {
             //Destroy(gameObject);
         }

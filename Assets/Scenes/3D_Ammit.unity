@@ -1593,6 +1593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1764659893350097265, guid: f5b9f1d9fe117094f96e3d54e124c872, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1764659893350097266, guid: f5b9f1d9fe117094f96e3d54e124c872, type: 3}
       propertyPath: m_Name
       value: Cubey

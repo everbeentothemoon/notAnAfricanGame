@@ -247,17 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   rotationSpeed: 100
-  jumpForce: 1
-  jumpReloadTime: 3
-  health: 0
-  healthBar: {fileID: 0}
-  gems: 0
-  healthText: {fileID: 0}
-  gem1: {fileID: 0}
-  gem2: {fileID: 0}
-  gem3: {fileID: 0}
-  gem4: {fileID: 0}
-  gem5: {fileID: 0}
+  jumpForce: 6
+  jumpReloadTime: 0
 --- !u!54 &1764659893350097228
 Rigidbody:
   m_ObjectHideFlags: 0
