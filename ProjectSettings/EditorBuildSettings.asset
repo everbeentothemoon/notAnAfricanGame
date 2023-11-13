@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/2D_NinkiNanka.unity
     guid: 7c1fc621711556d40ac4593a37b2857e
   - enabled: 1
-    path: Assets/Scenes/3D_ MokeleMbembe.unity
-    guid: ee9f3aa33a77efb4382c9877b8c66920
-  - enabled: 1
     path: Assets/Scenes/3D_Ammit.unity
     guid: 934ee974d39182649b41de9b58dc5ddc
   - enabled: 1
@@ -38,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3D_Tokoloshe.unity
     guid: 1c205972cd718c3428a91bed7598fcd3
+  - enabled: 1
+    path: Assets/Scenes/3D_MokeleMbembe.unity
+    guid: 394ee866719d9e645a0c204ea55dff4c
   m_configObjects: {}
