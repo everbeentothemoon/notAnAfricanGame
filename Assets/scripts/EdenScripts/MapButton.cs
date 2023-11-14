@@ -24,6 +24,6 @@ public class MapButton : MonoBehaviour
 
     public void MainMenuButtonPressed()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 }
