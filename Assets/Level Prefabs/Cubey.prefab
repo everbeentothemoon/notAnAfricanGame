@@ -245,10 +245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768830296c04c834e9ac4ecd8a3d81cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 9
   rotationSpeed: 100
-  jumpForce: 6
-  jumpReloadTime: 0
+  jumpForce: 9
+  jumpReloadTime: 1
 --- !u!54 &1764659893350097228
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyForce: 6
-  flyReloadTime: 1
   rb: {fileID: 1764659893350097228}
 --- !u!1 &1764659893416572651
 GameObject:
