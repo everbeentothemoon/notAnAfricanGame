@@ -74,7 +74,7 @@ public class angelScript : MonoBehaviour
 
     }*/
     public float flyForce = 1f;
-    public float flyReloadTime = 3f;
+    private float flyReloadTime = 1f;
 
     public Rigidbody rb;
     private bool canFly = true;
